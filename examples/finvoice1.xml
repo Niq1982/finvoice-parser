@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="ISO-8859-15"?>
+<?xml-stylesheet type="text/xsl" href="Finvoice.xsl"?>
+<Finvoice Version="2.01" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Finvoice2.01.xsd">
+    <SellerPartyDetails>
+        <SellerPartyIdentifier>0114162-2</SellerPartyIdentifier>
+        <SellerOrganisationName>Stockmann Oyj Abp</SellerOrganisationName>
+        <SellerOrganisationTaxCode>FI01141622</SellerOrganisationTaxCode>
+        <SellerPostalAddressDetails>
+         <SellerTownName>HELSINKI</SellerTownName>
+            <SellerPostCodeIdentifier>00101</SellerPostCodeIdentifier>
+            <CountryCode>FI</CountryCode>
+            <SellerPostOfficeBoxIdentifier>PL 220</SellerPostOfficeBoxIdentifier>
+        </SellerPostalAddressDetails>
+    </SellerPartyDetails>
+    <SellerContactPersonName>Lauri Veijalainen</SellerContactPersonName>
+    <SellerInformationDetails>
+        <SellerHomeTownName>HELSINKI</SellerHomeTownName>
+        <SellerPhoneNumber>040 351 8322</SellerPhoneNumber>
+        <SellerAccountDetails>
+            <SellerAccountID IdentificationSchemeName="IBAN">FI3843224649000556</SellerAccountID>
+            <SellerBic IdentificationSchemeName="BIC">NDEAFIHH</SellerBic>
+        </SellerAccountDetails>
+    </SellerInformationDetails>
+    <BuyerPartyDetails>
+        <BuyerOrganisationName>Mallikas Oy</BuyerOrganisationName>
+        <BuyerPostalAddressDetails>
+            <BuyerStreetName>Ranckenintie 7</BuyerStreetName>
+            <BuyerTownName>HELSINKI</BuyerTownName>
+            <BuyerPostCodeIdentifier>00920</BuyerPostCodeIdentifier>
+        </BuyerPostalAddressDetails>
+    </BuyerPartyDetails>
+    <BuyerCommunicationDetails />
+    <InvoiceDetails>
+        <InvoiceTypeCode>INV01</InvoiceTypeCode>
+        <InvoiceTypeText>LASKU</InvoiceTypeText>
+        <OriginCode>Copy</OriginCode>
+        <InvoiceNumber>100946</InvoiceNumber>
+        <InvoiceDate Format="CCYYMMDD">20230201</InvoiceDate>
+        <OrderIdentifier>744500</OrderIdentifier>
+        <InvoiceTotalVatExcludedAmount AmountCurrencyIdentifier="EUR">364,50</InvoiceTotalVatExcludedAmount>
+        <InvoiceTotalVatAmount AmountCurrencyIdentifier="EUR">87,48</InvoiceTotalVatAmount>
+        <InvoiceTotalVatIncludedAmount AmountCurrencyIdentifier="EUR">451,98</InvoiceTotalVatIncludedAmount>
+        <SellerAccountText>1452</SellerAccountText>
+        <VatSpecificationDetails>
+            <VatBaseAmount AmountCurrencyIdentifier="EUR">364,50</VatBaseAmount>
+            <VatRatePercent>24</VatRatePercent>
+            <VatRateAmount AmountCurrencyIdentifier="EUR">87,48</VatRateAmount>
+        </VatSpecificationDetails>
+        <PaymentTermsDetails>
+            <PaymentTermsFreeText>14 pv netto</PaymentTermsFreeText>
+            <InvoiceDueDate Format="CCYYMMDD">20230228</InvoiceDueDate>
+            <PaymentOverDueFineDetails>
+                <PaymentOverDueFinePercent>0,00</PaymentOverDueFinePercent>
+            </PaymentOverDueFineDetails>
+        </PaymentTermsDetails>
+    </InvoiceDetails>
+    <InvoiceRow>
+        <ArticleIdentifier>114713</ArticleIdentifier>
+        <DeliveredQuantity QuantityUnitCode="D">145,00</DeliveredQuantity>
+        <UnitPriceAmount AmountCurrencyIdentifier="EUR" UnitPriceUnitCode="D">2,50</UnitPriceAmount>
+        <RowFreeText>Tavara X</RowFreeText>
+        <RowVatRatePercent>24</RowVatRatePercent>
+        <RowVatAmount AmountCurrencyIdentifier="EUR">87,00</RowVatAmount>
+        <RowVatExcludedAmount AmountCurrencyIdentifier="EUR">362,50</RowVatExcludedAmount>
+        <RowAmount AmountCurrencyIdentifier="EUR">449,50</RowAmount>
+    </InvoiceRow>
+    <InvoiceRow>
+        <DeliveredQuantity QuantityUnitCode="">1,00</DeliveredQuantity>
+        <UnitPriceAmount AmountCurrencyIdentifier="EUR" UnitPriceUnitCode="">2,00</UnitPriceAmount>
+        <RowFreeText>Paperilasku 2,00</RowFreeText>
+        <RowVatRatePercent>24</RowVatRatePercent>
+        <RowVatAmount AmountCurrencyIdentifier="EUR">0,48</RowVatAmount>
+        <RowVatExcludedAmount AmountCurrencyIdentifier="EUR">2,00</RowVatExcludedAmount>
+        <RowAmount AmountCurrencyIdentifier="EUR">2,48</RowAmount>
+    </InvoiceRow>
+    <EpiDetails>
+        <EpiIdentificationDetails>
+            <EpiDate Format="CCYYMMDD">20230201</EpiDate>
+            <EpiReference />
+        </EpiIdentificationDetails>
+        <EpiPartyDetails>
+            <EpiBfiPartyDetails>
+                <EpiBfiIdentifier IdentificationSchemeName="BIC">NDEAFIHH</EpiBfiIdentifier>
+            </EpiBfiPartyDetails>
+            <EpiBeneficiaryPartyDetails>
+                <EpiNameAddressDetails>Stockmann Oyj Abp</EpiNameAddressDetails>
+                <EpiAccountID IdentificationSchemeName="IBAN">FI3843224649000556</EpiAccountID>
+            </EpiBeneficiaryPartyDetails>
+        </EpiPartyDetails>
+        <EpiPaymentInstructionDetails>
+            <EpiPaymentInstructionId></EpiPaymentInstructionId>
+            <EpiRemittanceInfoIdentifier IdentificationSchemeName="SPY">101074450001009462</EpiRemittanceInfoIdentifier>
+            <EpiInstructedAmount AmountCurrencyIdentifier="EUR">451,98</EpiInstructedAmount>
+            <EpiCharge ChargeOption="SHA">SHA</EpiCharge>
+            <EpiDateOptionDate Format="CCYYMMDD">20230228</EpiDateOptionDate>
+        </EpiPaymentInstructionDetails>
+    </EpiDetails>
+</Finvoice>

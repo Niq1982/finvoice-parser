@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="ISO-8859-15"?>
+<?xml-stylesheet type="text/xsl" href="Finvoice.xsl"?>
+<Finvoice Version="2.01" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Finvoice2.01.xsd">
+    <SellerPartyDetails>
+        <SellerPartyIdentifier>0114162-2</SellerPartyIdentifier>
+        <SellerOrganisationName>Stockmann Oyj Abp</SellerOrganisationName>
+        <SellerOrganisationTaxCode>FI01141622</SellerOrganisationTaxCode>
+        <SellerPostalAddressDetails>
+            <SellerTownName>HELSINKI</SellerTownName>
+            <SellerPostCodeIdentifier>00101</SellerPostCodeIdentifier>
+            <CountryCode>FI</CountryCode>
+            <SellerPostOfficeBoxIdentifier>PL 220</SellerPostOfficeBoxIdentifier>
+        </SellerPostalAddressDetails>
+    </SellerPartyDetails>
+    <SellerContactPersonName>Lauri Veijalainen</SellerContactPersonName>
+    <SellerInformationDetails>
+        <SellerHomeTownName>HELSINKI</SellerHomeTownName>
+        <SellerPhoneNumber>040 351 8322</SellerPhoneNumber>
+        <SellerAccountDetails>
+            <SellerAccountID IdentificationSchemeName="IBAN">FI3843224649000556</SellerAccountID>
+            <SellerBic IdentificationSchemeName="BIC">NDEAFIHH</SellerBic>
+        </SellerAccountDetails>
+    </SellerInformationDetails>
+    <BuyerPartyDetails>
+        <BuyerOrganisationName>Mallikas Oy</BuyerOrganisationName>
+        <BuyerPostalAddressDetails>
+            <BuyerStreetName>Ranckenintie 7</BuyerStreetName>
+            <BuyerTownName>HELSINKI</BuyerTownName>
+            <BuyerPostCodeIdentifier>00920</BuyerPostCodeIdentifier>
+        </BuyerPostalAddressDetails>
+    </BuyerPartyDetails>
+    <BuyerCommunicationDetails />
+    <InvoiceDetails>
+        <InvoiceTypeCode>INV01</InvoiceTypeCode>
+        <InvoiceTypeText>LASKU</InvoiceTypeText>
+        <OriginCode>Copy</OriginCode>
+        <InvoiceNumber>101441</Invoicenumber>
+        <InvoiceDate Format="CCYYMMDD">20230210</InvoiceDate>
+        <InvoiceTotalVatEcludedAmount AmountCurrencyIdentifier="EUR">50,50</InvoiceTotalVatEcludedAmount>
+        <InvoiceTotalVatAmount AmountCurrencyIdentifier="EUR">7,07</InvoiceTotalVatAmount>
+        <InvoiceTotalVatIncludedAmount AmountCurrencyIdentifier="EUR">57,57</InvoiceTotalVatIncludedAmount>
+        <SellerAccountText>1452</SellerAccountText>
+        <VatSpecificationDetails>
+            <VatBaseAmount AmountCurrencyIdentifier="EUR">50,50</VatBaseAmount>
+            <VatRatePercent>14</VatRatePercent>
+            <VatRateAmount AmountCurrencyIdentifier="EUR">7,07</VatRateAmount>
+        </VatSpecificationDetails>
+        <PaymentTermsDetails>
+            <PaymentTermsFreeText>14 pv netto</PaymentTermsFreeText>
+            <InvoiceDueDate Format="CCYYMMDD">20230224</InvoiceDueDate>
+            <PaymentOverDueFineDetails>
+                <PaymentOverDueFinePercent>0,00</PaymentOverDueFinePercent>
+            </PaymentOverDueFineDetails>
+        </PaymentTermsDetails>
+    </InvoiceDetails>
+    <InvoiceRow>
+        <ArticleIdentifier>9393</ArticleIdentifier>
+        <DeliveredQuantity QuantityUnitCode="D">101,00</DeliveredQuantity>
+        <UnitPriceAmount AmountCurrencyIdentifier="EUR" UnitPriceUnitCode="D">0,50</UnitPriceAmount>
+        <RowFreeText>Tuote Y</RowFreeText>
+        <RowVatRatePercent>14</RowVatRatePercent>
+        <RowVatAmount AmountCurrencyIdentifier="EUR">7,07</RowVatAmount>
+        <RowVatExcludedAmount AmountCurrencyIdentifier="EUR">50,50</RowVatExcludedAmount>
+        <RowAmount AmountCurrencyIdentifier="EUR">57,57</RowAmount>
+    </InvoiceRow>
+    <EpiDetails>
+        <EpiIdentificationDetails>
+            <EpiDate Format="CCYYMMDD">20230210</EpiDate>
+            <EpiReference />
+        </EpiIdentificationDetails>
+        <EpiPartyDetails>
+            <EpiBfiPartyDetails>
+                <EpiBfiIdentifier IdentificationSchemeName="BIC">NDEAFIHH</EpiBfiIdentifier>
+            </EpiBfiPartyDetails>
+            <EpiBeneficiaryPartyDetails>
+                <EpiNameAddressDetails>Stockmann Oyj Abp</EpiNameAddressDetails>
+                <EpiAccountID IdentificationSchemeName="IBAN">FI3843224649000556</EpiAccountID>
+            </EpiBeneficiaryPartyDetails>
+        </EpiPartyDetails>
+        <EpiPaymentInstructionDetails>
+            <EpiPaymentInstructionId></EpiPaymentInstructionId>
+            <EpiRemittanceInfoIdentifier IdentificationSchemeName="SPY">101074450001009462</EpiRemittanceInfoIdentifier>
+            <EpiInstructedAmount AmountCurrencyIdentifier="EUR">57,57</EpiInstructedAmount>
+            <EpiCharge ChargeOption="SHA">SHA</EpiCharge>
+            <EpiDateOptionDate Format="CCYYMMDD">20230224</EpiDateOptionDate>
+        </EpiPaymentInstructionDetails>
+    </EpiDetails>
+</Finvoice>

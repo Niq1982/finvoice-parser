@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="ISO-8859-15"?>
+<?xml-stylesheet type="text/xsl" href="Finvoice.xsl"?>
+<Finvoice Version="2.01" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Finvoice2.01.xsd">
+    <SellerPartyDetails>
+        <SellerPartyIdentifier>1463611-4</SellerPartyIdentifier>
+        <SellerOrganisationName>Fortum Oyj</SellerOrganisationName>
+        <SellerOrganisationTaxCode>FI14636114</SellerOrganisationTaxCode>
+        <SellerPostalAddressDetails>
+            <SellerTownName>FORTUM</SellerTownName>
+            <SellerPostCodeIdentifier>00048</SellerPostCodeIdentifier>
+            <CountryCode>FI</CountryCode>
+            <SellerPostOfficeBoxIdentifier>PL 100</SellerPostOfficeBoxIdentifier>
+        </SellerPostalAddressDetails>
+    </SellerPartyDetails>
+    <SellerInformationDetails>
+        <SellerHomeTownName>HELSINKI</SellerHomeTownName>
+        <SellerAccountDetails>
+            <SellerAccountID IdentificationSchemeName="IBAN">FI5241234320000314</SellerAccountID>
+            <SellerBic IdentificationSchemeName="BIC">NDEAFIHH</SellerBic>
+        </SellerAccountDetails>
+    </SellerInformationDetails>
+    <BuyerPartyDetails>
+        <BuyerOrganisationName>Mallikas Oy</BuyerOrganisationName>
+        <BuyerPostalAddressDetails>
+            <BuyerStreetName>Ranckenintie 7</BuyerStreetName>
+            <BuyerTownName>HELSINKI</BuyerTownName>
+            <BuyerPostCodeIdentifier>00920</BuyerPostCodeIdentifier>
+        </BuyerPostalAddressDetails>
+    </BuyerPartyDetails>
+    <BuyerCommunicationDetails />
+    <InvoiceDetails>
+        <InvoiceTypeCode>INV01</InvoiceTypeCode>
+        <InvoiceTypeText>LASKU</InvoiceTypeText>
+        <OriginCode>Copy</OriginCode>
+        <InvoiceNumber>6684413</InvoiceNumber>
+        <InvoiceDate Format="CCYYMMDD">20221231</InvoiceDate>
+        <OrderIdentifier>744500</OrderIdentifier>
+        <InvoiceTotalVatExcludedAmount AmountCurrencyIdentifier="EUR">1000,00</InvoiceTotalVatExcludedAmount>
+        <InvoiceTotalVatAmount AmountCurrencyIdentifier="EUR">240,00</InvoiceTotalVatAmount>
+        <InvoiceTotalVatIncludedAmount AmountCurrencyIdentifier="EUR">1240,00</InvoiceTotalVatIncludedAmount>
+        <SellerAccountText>1452</SellerAccountText>
+        <VatSpecificationDetails>
+            <VatBaseAmount AmountCurrencyIdentifier="EUR">1000,00</VatBaseAmount>
+            <VatRatePercent>24</VatRatePercent>
+            <VatRateAmount AmountCurrencyIdentifier="EUR">240,00</VatRateAmount>
+        </VatSpecificationDetails>
+        <PaymentTermsDetails>
+            <PaymentTermsFreeText>14 pv netto</PaymentTermsFreeText>
+            <InvoiceDueDate Format="CCYYMMDD">20231401</InvoiceDueDate>
+            <PaymentOverDueFineDetails>
+                <PaymentOverDueFinePercent>8,00</PaymentOverDueFinePercent>
+            </PaymentOverDueFineDetails>
+        </PaymentTermsDetails>
+    </InvoiceDetails>
+    <InvoiceRow>
+        <ArticleIdentifier>114713</ArticleIdentifier>
+        <DeliveredQuantity QuantityUnitCode="D">50,00</DeliveredQuantity>
+        <UnitPriceAmount AmountCurrencyIdentifier="EUR" UnitPriceUnitCode="D">20,00</UnitPriceAmount>
+        <RowFreeText>Tavara X</RowFreeText>
+        <RowVatRatePercent>24</RowVatRatePercent>
+        <RowVatAmount AmountCurrencyIdentifier="EUR">240,00</RowVatAmount>
+        <RowVatExcludedAmount AmountCurrencyIdentifier="EUR">1000,00</RowVatExcludedAmount>
+        <RowAmount AmountCurrencyIdentifier="EUR">1240,00</RowAmount>
+    </InvoiceRow>
+    <EpiDetails>
+        <EpiIdentificationDetails>
+            <EpiDate Format="CCYYMMDD">20221231</EpiDate>
+            <EpiReference />
+        </EpiIdentificationDetails>
+        <EpiPartyDetails>
+            <EpiBfiPartyDetails>
+                <EpiBfiIdentifier IdentificationSchemeName="BIC">NDEAFIHH</EpiBfiIdentifier>
+            </EpiBfiPartyDetails>
+            <EpiBeneficiaryPartyDetails>
+                <EpiNameAddressDetails>Nest Oyj</EpiNameAddressDetails>
+                <EpiAccountID IdentificationSchemeName="IBAN">FI5241234320000314</EpiAccountID>
+            </EpiBeneficiaryPartyDetails>
+        </EpiPartyDetails>
+        <EpiPaymentInstructionDetails>
+            <EpiPaymentInstructionId></EpiPaymentInstructionId>
+            <EpiRemittanceInfoIdentifier IdentificationSchemeName="SPY">101074450001009462</EpiRemittanceInfoIdentifier>
+            <EpiInstructedAmount AmountCurrencyIdentifier="EUR">451,98</EpiInstructedAmount>
+            <EpiCharge ChargeOption="SHA">SHA</EpiCharge>
+            <EpiDateOptionDate Format="CCYYMMDD">20231401</EpiDateOptionDate>
+        </EpiPaymentInstructionDetails>
+    </EpiDetails>
+</Finvoice>
