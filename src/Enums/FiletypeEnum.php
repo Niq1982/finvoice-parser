@@ -2,7 +2,7 @@
 namespace FinvoiceParser\Enums;
 
 
-enum FiletypeEnum
+enum FiletypeEnum: string
 {
     case XML = 'xml';
     case JSON = 'json';
