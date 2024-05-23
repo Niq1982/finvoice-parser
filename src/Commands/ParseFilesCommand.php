@@ -96,7 +96,6 @@ class ParseFilesCommand
             die();
         }
 
-
         // Ok, we have the files, let's start processing them
         echo self::STYLE_BOLD . "Found total of " . $fileDataCollection->count() . " files" . self::STYLE_END . PHP_EOL . PHP_EOL;
         echo "Processing..." . PHP_EOL . PHP_EOL;
