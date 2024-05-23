@@ -1,7 +1,23 @@
 #!/usr/bin/env php
 <?php
 
-require __DIR__ . '/bootstrap.php';
+require __DIR__ . '/../bootstrap.php';
 
+// Function to parse named command-line arguments
+function getNamedArguments($argv)
+{
+    $args = [];
+    foreach ($argv as $arg) {
+        if (preg_match('/--([^=]+)=?(.*)/', $arg, $matches)) {
+            $args[$matches[1]] = $matches[2];
+        }
+    }
+    return $args;
+}
 // Run the command
-(new FinvoiceParser\Commands\ParseFiles($argv ?? []))->execute();
+try {
+    (new FinvoiceParser\Commands\ParseFilesCommand(getNamedArguments($argv)))->execute();
+} catch (Exception $e) {
+    echo $e->getMessage() . PHP_EOL;
+    exit(1);
+}
