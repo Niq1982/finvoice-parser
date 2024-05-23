@@ -1,12 +1,19 @@
-# finvoice-parser
-A command line PHP parser for XML finvoices
+# Invoice Parser
+A command line PHP parser for extracting invoice data from different kind of files to output to a CSV file. For now supports only XML files and Finvoices.
 
-The flow is as follows:
-* Parses XML files found in the specified directory
-* Extracts relevant data from XML
-* Filters out duplicate invoices (same invoice number and supplier)
-* Sorts the invoices in the descending order by due date
-* Outputs the invoices to a CSV file specified by the user
+## How it works
+- Get all the suitable files from the input folder and create a collection of FileData objects
+- Go through the FileData objects using the selected factory methods to create a collection of InvoiceData objects
+- Sort the InvoiceData collection by payment due date
+- Generate the CSV file from the InvoiceData collection
+- Save the CSV file to the output file
+- Output the summary
+
+## Expanding the parser
+- Add a new interface if you need to support a new file type, for example `JSONInvoiceFactoryInterface`
+- Modify the `FileData` class to support the new file type
+- Create a new factory class that implements the new interface, for example `PaytrailInvoiceFactory`
+- Modify the `ParseFilesCommand` class to support the new factory, for example add a new option `--paytrail` and use the `PaytrailInvoiceFactory` if the option is set
 
 ## Installation
 
