@@ -2,11 +2,11 @@
 namespace FinvoiceParser\Actions;
 
 use FinvoiceParser\Data\FinvoiceXMLData;
-use FinvoiceParser\Data\FinVoiceXMLData\DateData;
-use FinvoiceParser\Data\FinVoiceXMLData\AmountData;
+use FinvoiceParser\Data\FinvoiceXMLData\DateData;
+use FinvoiceParser\Data\FinvoiceXMLData\AmountData;
 use FinvoiceParser\Exceptions\ReadXMLActionException;
 
-class ReadXMLAction
+class ReadXMLFileAction
 {
     private \XMLReader $xmlReader;
 
@@ -40,6 +40,7 @@ class ReadXMLAction
     {
         $data = [];
 
+        // At first, read the XML file and extract the data we need to an array
         try {
             while ($this->xmlReader->read()) {
                 if ($this->xmlReader->nodeType !== \XMLReader::ELEMENT)
