@@ -1,17 +1,17 @@
 <?php
 namespace FinvoiceParser\Actions;
 
-use FinvoiceParser\Data\FinVoiceData;
-use FinvoiceParser\Data\FinVoiceDataCollection;
+use FinvoiceParser\Data\FinvoiceData;
+use FinvoiceParser\Data\FinvoiceDataCollection;
 
-class GenerateCSVFromFinVoiceDataCollection
+class GenerateCSVFromFinvoiceDataCollection
 {
     /**
      * The column names for the CSV file.
      *
      * IMPORTANT: If you modify this, remember to update the column structure in the row generator method!
      *
-     * @see self::generateCSVRowFromFinVoiceData
+     * @see self::generateCSVRowFromFinvoiceData
      * @var string[]
      */
     private static $columnNames = [
@@ -28,7 +28,7 @@ class GenerateCSVFromFinVoiceDataCollection
     private static $dateFormat = 'YYYY-MM-DD';
 
     public function __construct(
-        private FinVoiceDataCollection $finVoiceDataCollection,
+        private FinvoiceDataCollection $FinvoiceDataCollection,
         private string $separator,
         private ?string $enclosure,
     ) {
@@ -39,8 +39,8 @@ class GenerateCSVFromFinVoiceDataCollection
         $rows = [
             implode($this->separator, self::$columnNames),
             ...array_map(
-                fn(FinVoiceData $data) => self::generateCSVRowFromFinVoiceData($data),
-                $this->finVoiceDataCollection->toArray()
+                fn(FinvoiceData $data) => self::generateCSVRowFromFinvoiceData($data),
+                $this->FinvoiceDataCollection->toArray()
             )
         ];
 
@@ -48,7 +48,7 @@ class GenerateCSVFromFinVoiceDataCollection
 
     }
 
-    private function generateCSVRowFromFinVoiceData(FinVoiceData $data): string
+    private function generateCSVRowFromFinvoiceData(FinvoiceData $data): string
     {
         $csv_values = [
             $data->supplierBusinessID,
