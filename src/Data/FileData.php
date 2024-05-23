@@ -15,13 +15,15 @@ use FinvoiceParser\Exceptions\FileDataException;
  */
 class FileData extends DataObject
 {
+    public readonly string $filePath;
+
     public function __construct(
-        public readonly string $filePath,
+        string $filePath,
         public readonly string $fileName,
         public readonly FiletypeEnum $fileType,
     ) {
         // Strip trailing slashes from the file path
-        $this->filePath = rtrim($this->filePath, '/');
+        $this->filePath = rtrim($filePath, '/');
     }
 
     public function getFullFilePath(): string
