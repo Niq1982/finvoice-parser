@@ -8,7 +8,7 @@ use FinvoiceParser\DataObject\DataObject;
  */
 abstract class DataObjectCollection implements \Iterator, \JsonSerializable
 {
-    private array $items;
+    protected array $items = [];
 
     private function __construct(array $items = [])
     {
@@ -27,7 +27,7 @@ abstract class DataObjectCollection implements \Iterator, \JsonSerializable
         return array_map(fn($item) => $item->jsonSerialize(), $this->items);
     }
 
-    public static function create(...$items): static
+    public static function create($items = []): static
     {
         return new static($items);
     }
