@@ -1,2 +1,2 @@
 # finvoice-parser
-A parser for XML finvoices
+A command line PHP parser for XML finvoices
