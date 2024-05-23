@@ -54,7 +54,7 @@ class FileData extends DataObject
         $xmlElement = simplexml_load_file(filename: $this->getFullFilePath(), options: LIBXML_NOCDATA | LIBXML_NOERROR | LIBXML_NOWARNING);
 
         if ($xmlElement === false) {
-            throw new FileDataException("Failed to load the XML file");
+            throw new FileDataException("Invalid XML file");
         }
 
         return $xmlElement;
