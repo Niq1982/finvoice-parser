@@ -4,7 +4,7 @@ namespace FinvoiceParser\Actions;
 use FinvoiceParser\Data\FinvoiceData;
 use FinvoiceParser\Data\FinvoiceDataCollection;
 
-class GenerateCSVFromFinvoiceDataCollection
+class GenerateCSVAction
 {
     /**
      * The column names for the CSV file.
@@ -25,10 +25,10 @@ class GenerateCSVFromFinvoiceDataCollection
         'Payment/due date'
     ];
 
-    private static $dateFormat = 'YYYY-MM-DD';
+    private static $dateFormat = 'Y-m-d';
 
     public function __construct(
-        private FinvoiceDataCollection $FinvoiceDataCollection,
+        private FinvoiceDataCollection $finvoiceDataCollection,
         private string $separator,
         private ?string $enclosure,
     ) {
@@ -40,7 +40,7 @@ class GenerateCSVFromFinvoiceDataCollection
             implode($this->separator, self::$columnNames),
             ...array_map(
                 fn(FinvoiceData $data) => self::generateCSVRowFromFinvoiceData($data),
-                $this->FinvoiceDataCollection->toArray()
+                $this->finvoiceDataCollection->toArray()
             )
         ];
 
