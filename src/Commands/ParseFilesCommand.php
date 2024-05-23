@@ -36,11 +36,11 @@ class ParseFilesCommand
     private InvoiceDataCollection $invoiceDataCollection;
 
     // ANSI escape codes for colors and styles
-    const STYLE_BOLD = "\033[1m";
-    const STYLE_RED = "\033[31m";
-    const STYLE_GREEN = "\033[32m";
-    const STYLE_YELLOW = "\033[33m";
-    const STYLE_END = "\033[0m";
+    private const STYLE_BOLD = "\033[1m";
+    private const STYLE_RED = "\033[31m";
+    private const STYLE_GREEN = "\033[32m";
+    private const STYLE_YELLOW = "\033[33m";
+    private const STYLE_END = "\033[0m";
 
     // The main parameters for the command
     private string $inputFolder = 'examples';
@@ -126,7 +126,7 @@ class ParseFilesCommand
             }
         }
 
-        $this->output_summary();
+        $this->outputSummary();
     }
 
     /**
@@ -225,7 +225,7 @@ class ParseFilesCommand
     }
 
 
-    public function output_summary(): void
+    public function outputSummary(): void
     {
         foreach ($this->errors as $error) {
             echo self::STYLE_RED . $error . self::STYLE_END . PHP_EOL;
