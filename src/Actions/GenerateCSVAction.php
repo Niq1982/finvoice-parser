@@ -25,6 +25,7 @@ class GenerateCSVAction
         'Bank account',
         'Bank reference number',
         'Payment sum',
+        // Yep, added the currency, since it's a good practice to have it whenever dealing with money
         'Payment sum currency',
         'Payment/due date'
     ];
