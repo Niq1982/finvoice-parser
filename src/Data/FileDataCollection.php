@@ -9,7 +9,7 @@ class FileDataCollection extends DataObjectCollection
 {
     public function current(): FileData
     {
-        return parent::current();
+        return current($this->items);
     }
 
     /**

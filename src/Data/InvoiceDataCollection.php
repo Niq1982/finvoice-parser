@@ -9,7 +9,7 @@ class InvoiceDataCollection extends DataObjectCollection
 {
     public function current(): InvoiceData
     {
-        return parent::current();
+        return current($this->items);
     }
 
     /**
