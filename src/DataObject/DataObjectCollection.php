@@ -1,4 +1,5 @@
 <?php
+
 namespace FinvoiceParser\DataObject;
 
 use FinvoiceParser\DataObject\DataObject;
@@ -59,7 +60,6 @@ abstract class DataObjectCollection implements \Iterator, \JsonSerializable
     public function next(): void
     {
         next($this->items);
-
     }
     public function rewind(): void
     {

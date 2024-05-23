@@ -1,4 +1,5 @@
 <?php
+
 namespace FinvoiceParser\Commands;
 
 use FinvoiceParser\Data\FileData;
@@ -51,8 +52,6 @@ class ParseFilesCommand
     private int $generated = 0;
     private int $skipped = 0;
     private array $errors = [];
-
-
 
     public function __construct(
         array $args = [] // Named arguments from the command line
@@ -125,7 +124,6 @@ class ParseFilesCommand
                 echo self::STYLE_RED . "Fatal error occurred while creating the CSV file: " . $e->getMessage() . self::STYLE_END . PHP_EOL;
                 die();
             }
-
         }
 
         $this->output_summary();

@@ -1,4 +1,5 @@
 <?php
+
 namespace FinvoiceParser\Factories\Interfaces;
 
 use FinvoiceParser\Data\FileData;

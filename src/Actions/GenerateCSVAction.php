@@ -1,4 +1,5 @@
 <?php
+
 namespace FinvoiceParser\Actions;
 
 use FinvoiceParser\Data\InvoiceData;
@@ -62,7 +63,6 @@ class GenerateCSVAction
         ];
 
         return implode(self::$endOfLine, $rows);
-
     }
 
     /**

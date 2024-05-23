@@ -1,6 +1,6 @@
 <?php
-namespace FinvoiceParser\Enums;
 
+namespace FinvoiceParser\Enums;
 
 enum FiletypeEnum: string
 {

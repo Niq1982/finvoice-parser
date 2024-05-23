@@ -1,4 +1,5 @@
 <?php
+
 namespace FinvoiceParser\Factories;
 
 use Brick\Money\Money;
@@ -70,6 +71,5 @@ class FinvoiceFactory implements XMLInvoiceFactoryInterface
                 (string) $mappedValues['EpiDateOptionDate'],
             ),
         );
-
     }
 }
