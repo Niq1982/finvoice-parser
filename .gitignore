@@ -2,3 +2,5 @@ composer.phar
 /vendor/
 .vscode/
 
+# Don't accidentally commit the csv:s to Git
+/**/*.csv
