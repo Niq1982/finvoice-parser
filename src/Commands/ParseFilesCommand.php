@@ -71,6 +71,8 @@ class ParseFilesCommand
         // Here we can decide what kind of file we are parsing, XML, JSON, etc.
         // For now, we are only supporting Finvoices, but we can add more factories later for different file types and sources
         $this->invoiceFactory = new FinvoiceFactory();
+
+        $this->invoiceDataCollection = InvoiceDataCollection::create();
     }
 
     /**
@@ -97,7 +99,7 @@ class ParseFilesCommand
 
 
         // Ok, we have the files, let's start processing them
-        echo PHP_EOL . self::STYLE_BOLD . "Found total of " . $fileDataCollection->count() . " files" . self::STYLE_END . PHP_EOL . PHP_EOL;
+        echo self::STYLE_BOLD . "Found total of " . $fileDataCollection->count() . " files" . self::STYLE_END . PHP_EOL . PHP_EOL;
         echo "Processing..." . PHP_EOL . PHP_EOL;
 
         // First we have to check what factory we are using
@@ -162,7 +164,7 @@ class ParseFilesCommand
              * If later on we would need to process larger files, we have to
              * refactor the XML reader to read the file in chunks or handle it otherwise.
              */
-            if (filesize($file) > 1024 * 1024) {
+            if (filesize($file->getFullFilePath()) > 1024 * 1024) {
                 $this->errors[] = "Error: File {$file->fileName} is too large";
                 continue;
             }
@@ -231,7 +233,6 @@ class ParseFilesCommand
             echo self::STYLE_RED . $error . self::STYLE_END . PHP_EOL;
         }
 
-        echo PHP_EOL . self::STYLE_BOLD . "Done!" . self::STYLE_END . PHP_EOL;
         echo '---[Summary]-------------------------------------' . PHP_EOL;
         if ($this->generated > 0) {
             echo self::STYLE_GREEN . "Generated {$this->generated} payments and saved them to {$this->outputFileName}" . self::STYLE_END . PHP_EOL;
