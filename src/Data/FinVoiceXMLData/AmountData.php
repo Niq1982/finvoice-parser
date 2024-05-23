@@ -1,5 +1,5 @@
 <?php
-namespace FinvoiceParser\Data\FinVoiceXMLData;
+namespace FinvoiceParser\Data\FinvoiceXMLData;
 
 use FinvoiceParser\DataObject\DataObject;
 
