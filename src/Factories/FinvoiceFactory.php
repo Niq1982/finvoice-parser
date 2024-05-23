@@ -1,31 +1,36 @@
 <?php
-
-namespace FinvoiceParser\Data;
+namespace FinvoiceParser\Factories;
 
 use Brick\Money\Money;
-use FinvoiceParser\DataObject\DataObject;
-use FinvoiceParser\Exceptions\FinvoiceDataException;
+use DateTimeImmutable;
+use FinvoiceParser\Data\FileData;
+use FinvoiceParser\Data\InvoiceData;
+use FinvoiceParser\Enums\FiletypeEnum;
+use FinvoiceParser\Exceptions\InvoiceDataException;
+use FinvoiceParser\Factories\Interfaces\XMLInvoiceFactoryInterface;
 
-class FinvoiceData extends DataObject
+/**
+ * The FinvoiceFactory class is responsible for creating InvoiceData objects from Finvoice XML files.
+ */
+class FinvoiceFactory implements XMLInvoiceFactoryInterface
 {
-    public function __construct(
-        public readonly string $supplierBusinessID,
-        public readonly string $supplierName,
-        public readonly int $invoiceNumber,
-        public readonly string $bankAccount,
-        public readonly int $bankReferenceNumber,
-        public readonly Money $paymentSum,
-        public readonly \DateTimeImmutable $paymentDueDate
-    ) {
+    public static function getFileType(): FiletypeEnum
+    {
+        return FiletypeEnum::XML;
     }
 
-    /**
-     * Factory method to create a FinvoiceData object from a SimpleXMLElement object.
-     *
-     * This is an example, in real life this would be created per source XML format.
-     */
-    public static function fromXMLElement(\SimpleXMLElement $xml): self
+    public static function createInvoiceFromFile(FileData $fileData): InvoiceData
     {
+        if ($fileData->fileType !== FiletypeEnum::XML) {
+            throw new InvoiceDataException('Invalid file type');
+        }
+
+        if (!($fileData->getData() instanceof \SimpleXMLElement)) {
+            throw new InvoiceDataException('Invalid data type');
+        }
+
+        $xml = $fileData->getData();
+
         /**
          * @var \SimpleXMLElement[]|null $mappedValues
          */
@@ -42,13 +47,14 @@ class FinvoiceData extends DataObject
         // Check that all the necessary data is present and not empty
         foreach ($mappedValues as $key => $value) {
             if ($value === null) {
-                throw new FinvoiceDataException("Missing required value {$key}");
+                throw new InvoiceDataException("Missing required value {$key}");
             }
             if (empty($value)) {
-                throw new FinvoiceDataException("Value for {$key} is empty");
+                throw new InvoiceDataException("Value for {$key} is empty");
             }
         }
-        return new self(
+
+        return new InvoiceData(
             supplierBusinessID: (string) $mappedValues['SellerPartyIdentifier'],
             supplierName: (string) $mappedValues['SellerOrganisationName'],
             invoiceNumber: (int) $mappedValues['InvoiceNumber'],
@@ -58,11 +64,12 @@ class FinvoiceData extends DataObject
                 str_replace(',', '.', (string) $mappedValues['EpiInstructedAmount']),
                 $mappedValues['EpiInstructedAmount']->attributes()->AmountCurrencyIdentifier,
             ),
-            paymentDueDate: \DateTimeImmutable::createFromFormat(
+            paymentDueDate: DateTimeImmutable::createFromFormat(
                 // TODO: This is a hardcoded format, we should make it dynamic, but PHP does not support formats like CCYYMMDD out of the box, thus making it out of scope for this task
                 'Ymd',
                 (string) $mappedValues['EpiDateOptionDate'],
             ),
         );
+
     }
 }

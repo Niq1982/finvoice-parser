@@ -69,4 +69,16 @@ abstract class DataObjectCollection implements \Iterator, \JsonSerializable
     {
         return key($this->items) !== null;
     }
+    /**
+     * Sort the collection in place using the provided sort function
+     */
+    public function sort(callable $sortFunction): void
+    {
+        usort($this->items, $sortFunction);
+    }
+
+    public function filter(callable $filterFunction): static
+    {
+        return static::create(array_filter($this->items, $filterFunction));
+    }
 }

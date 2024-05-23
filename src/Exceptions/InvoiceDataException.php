@@ -1,6 +1,6 @@
 <?php
 namespace FinvoiceParser\Exceptions;
 
-class FinvoiceDataException extends \Exception
+class InvoiceDataException extends \Exception
 {
 }
