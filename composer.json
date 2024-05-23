@@ -12,9 +12,6 @@
             "FinvoiceParser\\": "src/"
         }
     },
-    "scripts": {
-        "parse-files": "bin/parse-files"
-    },
     "authors": [
         {
             "name": "Niku Hietanen",

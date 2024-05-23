@@ -17,7 +17,7 @@ composer install
 ## Usage
 
 ```bash
-composer parse-files
+php bin/parse-files
 ```
 
 Will parse all XML files found the `examples` directory and output the results to a CSV file `invoices.csv` in the project root. The CSV file will be overwritten if it already exists.
@@ -27,7 +27,7 @@ Will parse all XML files found the `examples` directory and output the results t
 Take note that you need to add extra `--` before the options, as required by Composer.
 
 #### `--input`
-The directory containing the XML files to be parsed. Defaults to `examples`.
+The full path containing the XML files to be parsed. Defaults to `examples`.
 
 #### `--output`
 The path to the CSV file where the results will be written. Defaults to `invoices.csv`.
@@ -41,7 +41,7 @@ A character for wrapping CSV fields. Defaults to none.
 ### Example with options
 
 ```bash
-composer parse-files -- --dir=/path/to/directory --output=/path/to/output.csv --separator=',' --enclosure='"'
+php bin/parse-files --input=/path/to/directory --output=output_filename.csv --separator=',' --enclosure='"'
 ```
 
 Will parse all XML files found in `/path/to/directory` and output the results to `/path/to/output.csv` with a comma as the separator and double quotes as the enclosure.
