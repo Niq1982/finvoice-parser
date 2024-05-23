@@ -27,17 +27,15 @@ composer install
 php bin/parse-files
 ```
 
-Will parse all XML files found the `examples` directory and output the results to a CSV file `invoices.csv` in the project root. The CSV file will be overwritten if it already exists.
+Will parse all XML files found the `examples/` directory and output the results to a CSV file `invoices.csv` in the project root. The CSV file will be overwritten if it already exists.
 
 ### Options
 
-Take note that you need to add extra `--` before the options, as required by Composer.
-
 #### `--input`
-The full path containing the XML files to be parsed. Defaults to `examples`.
+The path containing the XML files to be parsed. Defaults to `examples/`.
 
 #### `--output`
-The path to the CSV file where the results will be written. Defaults to `invoices.csv`.
+The CSV file name where the results will be written. Defaults to `invoices.csv`.
 
 #### `--separator`
 A custom separator for the CSV file. Defaults to `;`.
