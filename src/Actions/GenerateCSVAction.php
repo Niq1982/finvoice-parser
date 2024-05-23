@@ -1,9 +1,12 @@
 <?php
 namespace FinvoiceParser\Actions;
 
-use FinvoiceParser\Data\FinvoiceData;
-use FinvoiceParser\Data\FinvoiceDataCollection;
+use FinvoiceParser\Data\InvoiceData;
+use FinvoiceParser\Data\InvoiceDataCollection;
 
+/**
+ * Generate a CSV file contents from the given InvoiceDataCollection
+ */
 class GenerateCSVAction
 {
     /**
@@ -25,10 +28,22 @@ class GenerateCSVAction
         'Payment/due date'
     ];
 
-    private static $dateFormat = 'Y-m-d';
+    /**
+     * The date format for outputting dates as a string
+     *
+     * @var string
+     */
+    private static string $dateFormat = 'Y-m-d';
+
+    /**
+     * The end of line character for the CSV file
+     *
+     * @var string
+     */
+    private static string $endOfLine = PHP_EOL;
 
     public function __construct(
-        private FinvoiceDataCollection $finvoiceDataCollection,
+        private InvoiceDataCollection $invoiceDataCollection,
         private string $separator,
         private ?string $enclosure,
     ) {
@@ -37,18 +52,26 @@ class GenerateCSVAction
     public function execute(): string
     {
         $rows = [
+            // Add column names at the top
             implode($this->separator, self::$columnNames),
+            // Spread the generated data rows
             ...array_map(
-                fn(FinvoiceData $data) => self::generateCSVRowFromFinvoiceData($data),
-                $this->finvoiceDataCollection->toArray()
+                fn(InvoiceData $data) => self::generateCSVRowFromFinvoiceData($data),
+                $this->invoiceDataCollection->toArray()
             )
         ];
 
-        return implode(PHP_EOL, $rows);
+        return implode(self::$endOfLine, $rows);
 
     }
 
-    private function generateCSVRowFromFinvoiceData(FinvoiceData $data): string
+    /**
+     * Generate a CSV row from the given Invoice data
+     *
+     * @param InvoiceData $data
+     * @return string
+     */
+    private function generateCSVRowFromFinvoiceData(InvoiceData $data): string
     {
         $csv_values = [
             $data->supplierBusinessID,
@@ -61,6 +84,7 @@ class GenerateCSVAction
             $data->paymentDueDate->format(self::$dateFormat)
         ];
 
+        // Wrap the values in enclosures if they are set
         if ($this->enclosure) {
             $csv_values = array_map(fn($value) => $this->enclosure . $value . $this->enclosure, $csv_values);
         }
