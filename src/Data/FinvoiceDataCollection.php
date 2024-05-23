@@ -1,30 +1,43 @@
 <?php
 namespace FinvoiceParser\Data;
 
-use FinvoiceParser\Data\FinVoiceData;
+use FinvoiceParser\Data\FinvoiceData;
 use FinvoiceParser\DataObject\DataObject;
 use FinvoiceParser\DataObject\DataObjectCollection;
 
-class FinVoiceDataCollection extends DataObjectCollection
+class FinvoiceDataCollection extends DataObjectCollection
 {
-    public function current(): FinVoiceData
+    public function current(): FinvoiceData
     {
         return parent::current();
     }
 
     /**
-     * @param FinVoiceData $item
+     * @param FinvoiceData $item
      */
     public function add(DataObject $item): void
     {
-        if (!$item instanceof FinVoiceData) {
-            throw new \InvalidArgumentException('Only FinVoiceData objects can be added to this collection');
+        if (!$item instanceof FinvoiceData) {
+            throw new \InvalidArgumentException('Only FinvoiceData objects can be added to this collection');
         }
 
         parent::add($item);
     }
-    public function first(): FinVoiceData|null
+    public function first(): FinvoiceData|null
     {
         return parent::first();
+    }
+
+    /**
+     * Check if the collection already contains the invoice by comparing the invoice number and supplier business ID
+     */
+    public function contains(FinvoiceData $item): bool
+    {
+        $duplicates = array_filter(
+            $this->items,
+            fn(FinvoiceData $invoice) => $invoice->invoiceNumber === $item->invoiceNumber && $invoice->supplierBusinessID === $item->supplierBusinessID
+        );
+
+        return count($duplicates) > 0;
     }
 }

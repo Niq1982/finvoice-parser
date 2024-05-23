@@ -5,7 +5,7 @@ namespace FinvoiceParser\Data;
 use Brick\Money\Money;
 use FinvoiceParser\DataObject\DataObject;
 
-class FinVoiceData extends DataObject
+class FinvoiceData extends DataObject
 {
     public function __construct(
         public readonly string $supplierBusinessID,
@@ -19,9 +19,9 @@ class FinVoiceData extends DataObject
     }
 
     /**
-     * Factory method to create a FinVoiceData object from FinVoiceXMLData object.
+     * Factory method to create a FinvoiceData object from FinvoiceXMLData object.
      */
-    public static function fromFinvoiceXMLData(FinVoiceXMLData $data): self
+    public static function fromFinvoiceXMLData(FinvoiceXMLData $data): self
     {
         return new self(
             supplierBusinessID: $data->SellerPartyIdentifier,

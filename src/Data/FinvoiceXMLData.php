@@ -1,8 +1,8 @@
 <?php
 namespace FinvoiceParser\Data;
 
-use FinvoiceParser\Data\FinVoiceXMLData\AmountData;
-use FinvoiceParser\Data\FinVoiceXMLData\DateData;
+use FinvoiceParser\Data\FinvoiceXMLData\AmountData;
+use FinvoiceParser\Data\FinvoiceXMLData\DateData;
 use FinvoiceParser\DataObject\DataObject;
 
 /**
